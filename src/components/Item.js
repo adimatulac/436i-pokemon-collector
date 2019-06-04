@@ -41,7 +41,7 @@ class Item extends React.Component {
         </td>
         <td>
         {this.state.showPopup ? (
-          <Popup text={this.props.details} closePopup={this.togglePopup.bind(this)} />
+          <Popup text={this.props.details} closePopup={this.togglePopup} />
         ) : null}
         </td>
       </tr>
