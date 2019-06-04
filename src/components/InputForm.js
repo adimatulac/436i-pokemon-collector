@@ -11,7 +11,7 @@ class InputForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        if (!this.refs.title.value.trim()) {
+        if (!this.refs.title.value.trim() || !this.refs.details.value.trim()) {
             return;
         }
         let newItem = {
@@ -23,21 +23,28 @@ class InputForm extends React.Component {
         this.refs.title.value = '';
         this.refs.details.value = '';
     }
+
+    handleClear = (e) => {
+        e.preventDefault();
+        this.refs.title.value = '';
+        this.refs.details.value = '';
+    }
     
     render() {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="title">
-                        what are you looking for?
+                        name
                     </label>
-                    <input type="text" id="title" ref="title"/>
+                    <input type="text" id="title" ref="title" />
                     <label htmlFor="details">
-                        details
+                        type
                     </label>
-                    <textarea id="details" ref="details"/>
-                    <button onClick={this.handleSubmit}>add</button>
+                    <input id="details" ref="details" />
                 </form>
+                <button onClick={this.handleSubmit}>add</button>
+                <button onClick={this.handleClear}>clear form</button>
             </div>
         )
     }
@@ -47,4 +54,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({addItem}, dispatch);
 }
 
-export default connect(()=>{}, mapDispatchToProps)(InputForm);
+export default connect(() => {return {}}, mapDispatchToProps)(InputForm);

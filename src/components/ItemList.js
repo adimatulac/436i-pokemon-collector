@@ -6,6 +6,12 @@ class ItemList extends React.Component {
     render() {
         return(
             <table>
+                <thead>
+                    <tr>
+                    <th>name</th>
+                    <th>type</th>
+                    </tr>
+                </thead>
                 <tbody>
                 {this.props.items.map(item => 
                     <Item key={item.id}

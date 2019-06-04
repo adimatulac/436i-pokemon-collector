@@ -4,17 +4,17 @@ const initState = [
 	{
 		id: 50, 
 		title: "carrots", 
-		details: "good for you"
+		details: "bulbasaur"
 	},
 	{
 		id: 51, 
-		title: "tater tots", 
-		details: "not really good for you"
+		title: "tater tot", 
+		details: "charizard"
 	},
 	{
 		id: 52, 
 		title: "arsenic", 
-		details: "definitely not good for you"
+		details: "squirtle"
 	}
 ]
 
@@ -22,18 +22,20 @@ const rootReducer = (state = initState, action) => {
 	switch (action.type) {
         case 'ADD_ITEM':
 			return state.concat(action.payload);
-			// return [
-			// 	...state,
-			// 	{
-			// 		id: action.id,
-			// 		title: action.title,
-			// 		details: action.details
-			// 	}
-			// ]
         case 'DELETE_ITEM':
 			return state.filter(item => {
 				return item.id !== action.payload
 			});
+		// case 'OPEN_MODAL':
+		// 	return {
+		// 		...state,
+		// 		modals: state.modals.concat(action.obj)
+		// 	};
+		// case 'CLOSE_MODAL':
+		// 	return {
+		// 		...state,
+		// 		modals: state.modals.filter(item => item.id !== action.obj.id)
+		// 	};
         default:
             return state;
     }
