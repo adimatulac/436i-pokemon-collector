@@ -65,3 +65,13 @@ h6 {
 .mini-table {
   width: 80%;
 }
+
+.name-link {
+  transition-duration: 0.1s;
+  transition-property: color;
+  transition-timing-function: ease-in;
+}
+
+.name-link:hover {
+  color: grey;
+}

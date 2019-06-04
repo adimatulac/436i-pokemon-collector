@@ -48,7 +48,7 @@ class InputForm extends React.Component {
                     <input type="text" className="form-control" id="details" ref="details" />
                     </div>
                     <button type="submit" className="btn btn-primary extra-space fix-padding">add</button>
-                    <button className="btn btn-primary extra-space fix-padding" onClick={this.handleClear}>clear form</button>
+                    <button className="btn btn-secondary extra-space fix-padding" onClick={this.handleClear}>clear form</button>
                 </form>
             </div>
         )

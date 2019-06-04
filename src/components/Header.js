@@ -9,6 +9,9 @@ class Header extends React.Component {
                 <h4>
                     Sprites
                 </h4>
+                <h6>
+                    (up to generation 6)
+                </h6>
             </div>
         )
     }

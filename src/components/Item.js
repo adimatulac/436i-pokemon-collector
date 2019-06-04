@@ -31,13 +31,13 @@ class Item extends React.Component {
     return(
       <tr>
         <td>
-          <span onClick={this.togglePopup}>{this.props.title}</span>
+          <span className="name-link" onClick={this.togglePopup}>{this.props.title}</span>
         </td>
         <td>
           {this.props.details}
         </td>
         <td>
-        <button className="btn btn-primary fix-padding" onClick={this.handleButton}>delete</button>
+        <button className="btn btn-danger fix-padding" onClick={this.handleButton}>delete</button>
         </td>
         <td>
         {this.state.showPopup ? (
