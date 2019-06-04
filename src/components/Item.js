@@ -2,20 +2,19 @@ import React from 'react';
 import { deleteItem } from '../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import DetailModal from './DetailModal';
 
 class Item extends React.Component {
   constructor(props) {
     super(props);
     this.handleButton = this.handleButton.bind(this);
-    this.handleModal = this.handleModal.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   handleButton = () => {
     this.props.deleteItem(this.props.id);
   }
 
-  handleModal = () => {
+  toggleModal = () => {
     console.log(this.props.details);
   }
 
@@ -23,7 +22,7 @@ class Item extends React.Component {
     return(
       <tr>
         <td>
-          <span onClick={this.handleModal}>{this.props.title}</span>
+          <span onClick={this.toggleModal}>{this.props.title}</span>
         </td>
         <td>
           {this.props.details}

@@ -7,6 +7,7 @@ class InputForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClear = this.handleClear.bind(this);
     }
 
     handleSubmit = (e) => {
