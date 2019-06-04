@@ -4,10 +4,10 @@ import logo from '../assets/pokemon-logo.png';
 class Header extends React.Component {
     render() {
         return(
-            <div>
-                <img src={logo} alt="pokemon logo" width={"35%"}/>
+            <div className="container header">
+                <img src={logo} alt="pokemon logo" width={"80%"}/>
                 <h4>
-                    Generation 1
+                    Sprites
                 </h4>
             </div>
         )

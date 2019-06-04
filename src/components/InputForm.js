@@ -33,18 +33,22 @@ class InputForm extends React.Component {
     
     render() {
         return(
-            <div>
+            <div className="mini-form container">
                 <form onSubmit={this.handleSubmit}>
+                    <div className="form-group">
                     <label htmlFor="title">
                         * name:
                     </label>
-                    <input type="text" id="title" ref="title" />
+                    <input type="text" className="form-control" id="title" ref="title" />
+                    </div>
+                    <div className="form-group">
                     <label htmlFor="details">
                         * type:
                     </label>
-                    <input type="text" id="details" ref="details" />
-                    <button>add</button>
-                    <button onClick={this.handleClear}>clear form</button>
+                    <input type="text" className="form-control" id="details" ref="details" />
+                    </div>
+                    <button type="submit" className="btn btn-primary extra-space fix-padding">add</button>
+                    <button className="btn btn-primary extra-space fix-padding" onClick={this.handleClear}>clear form</button>
                 </form>
             </div>
         )

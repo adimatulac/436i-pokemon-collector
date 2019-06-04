@@ -37,7 +37,7 @@ class Item extends React.Component {
           {this.props.details}
         </td>
         <td>
-        <button onClick={this.handleButton}>delete</button>
+        <button className="btn btn-primary fix-padding" onClick={this.handleButton}>delete</button>
         </td>
         <td>
         {this.state.showPopup ? (

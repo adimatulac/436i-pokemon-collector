@@ -12,10 +12,56 @@ code {
     monospace;
 }
 
+p {
+  font-family: 'Open Sans', sans-serif
+}
+
 span:hover {
   cursor: pointer;
 }
 
 button:hover {
   cursor: pointer;
+}
+
+.extra-space {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.fix-padding {
+  padding: 2px 8px 2px 8px;
+}
+
+.extra-space-header {
+  padding: 0 0 0 140px;
+}
+
+.header {
+  width: 40%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mini-form {
+  width: 40%;
+}
+
+.container {
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+}
+
+.mini-table {
+  width: 80%;
 }
