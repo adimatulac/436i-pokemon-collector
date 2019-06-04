@@ -13,21 +13,19 @@ class ItemList extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                {this.props.items.map(item => 
-                    <Item key={item.id}
-                    {...item}
-                    />
-                )}
+                {this.props.items.map(item => <Item key={item.id} {...item} />)}
                 </tbody>
             </table>
         );
     }
 }
 
+// maps current state to store properties
 function mapStateToProps(state) {
     return {
         items: state.items
     };
 }
 
+// passes mapped state on (binds to class)
 export default connect(mapStateToProps)(ItemList);

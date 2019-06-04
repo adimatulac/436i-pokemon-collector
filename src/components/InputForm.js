@@ -36,16 +36,16 @@ class InputForm extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="title">
-                        name
+                        * name:
                     </label>
                     <input type="text" id="title" ref="title" />
                     <label htmlFor="details">
-                        type
+                        * type:
                     </label>
-                    <input id="details" ref="details" />
+                    <input type="text" id="details" ref="details" />
+                    <button>add</button>
+                    <button onClick={this.handleClear}>clear form</button>
                 </form>
-                <button onClick={this.handleSubmit}>add</button>
-                <button onClick={this.handleClear}>clear form</button>
             </div>
         )
     }
