@@ -2,19 +2,34 @@ import { combineReducers } from 'redux';
 
 const initState = [
 	{
-		id: 50, 
+		id: 1, 
 		title: "carrots", 
 		details: "bulbasaur"
 	},
 	{
-		id: 51, 
+		id: 2, 
 		title: "tater tot", 
-		details: "charizard"
+		details: "charmander"
 	},
 	{
-		id: 52, 
+		id: 3, 
 		title: "arsenic", 
 		details: "squirtle"
+	},
+	{
+		id: 4, 
+		title: "captain hook", 
+		details: "psyduck"
+	},
+	{
+		id: 5, 
+		title: "thor", 
+		details: "oddish"
+	},
+	{
+		id: 6, 
+		title: "juicebox", 
+		details: "pikachu"
 	}
 ]
 
