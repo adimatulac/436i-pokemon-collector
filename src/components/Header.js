@@ -6,12 +6,15 @@ class Header extends React.Component {
         return(
             <div className="container header">
                 <img src={logo} alt="pokemon logo" width={"80%"}/>
-                <h4>
+                <h3>
                     Sprites
-                </h4>
-                <h6>
+                </h3>
+                <h5>
                     (up to generation 6)
-                </h6>
+                </h5>
+                <p>
+                    sprites from <a href="https://pokemondb.net/sprites">pokemon database</a>
+                </p>
             </div>
         )
     }

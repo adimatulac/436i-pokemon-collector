@@ -37,13 +37,17 @@ class InputForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                     <label htmlFor="title">
+                        <h5>
                         * name:
+                        </h5>
                     </label>
                     <input type="text" className="form-control" id="title" ref="title" />
                     </div>
                     <div className="form-group">
                     <label htmlFor="details">
+                        <h5>
                         * type:
+                        </h5>
                     </label>
                     <input type="text" className="form-control" id="details" ref="details" />
                     </div>
