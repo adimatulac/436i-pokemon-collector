@@ -1,13 +1,15 @@
 import React from 'react';
-import List from './List';
-// import AddItem from './AddItem';
+import Header from './Header';
+import InputForm from './InputForm';
+import ItemList from './ItemList';
 
 class App extends React.Component {
   render() {
     return (
-    <div className="App container">
-      {/* <AddItem /> */}
-      <List />
+    <div className="container">
+      <Header />
+      <InputForm />
+      <ItemList />
     </div>
   );
   }

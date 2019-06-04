@@ -71,7 +71,6 @@ class List extends React.Component {
         details: this.state.details,
         id: Date.now()
       };
-    //   this.props.addItem(newItem);
       this.setState(state => ({
         items: state.items.concat(newItem),
         text: '',
@@ -79,9 +78,5 @@ class List extends React.Component {
       }));
     }
 }
-
-// const mapStateToProps = (state, ownProps) => {
-    
-// }
 
 export default List;
