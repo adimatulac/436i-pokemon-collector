@@ -10,7 +10,7 @@ class Header extends React.Component {
                     Sprites
                 </h3>
                 <h5>
-                    (up to generation 6)
+                    (up to generation 5)
                 </h5>
                 <p>
                     sprites from <a href="https://pokemondb.net/sprites">pokemon database</a>

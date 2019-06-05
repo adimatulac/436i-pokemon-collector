@@ -20,6 +20,7 @@ class Item extends React.Component {
 
   togglePopup = () => {
     // console.log(this.props.details);
+    // bind to action - trigger in app
     console.log(this.state);
     this.setState({
       showPopup: !this.state.showPopup
