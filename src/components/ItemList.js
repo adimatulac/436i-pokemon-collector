@@ -6,7 +6,7 @@ class ItemList extends React.Component {
     render() {
         return(
             <div className="container mini-table">
-            <table className="table">
+            <table className="table table-borderless table-hover">
                 <thead>
                     <tr>
                     <th>

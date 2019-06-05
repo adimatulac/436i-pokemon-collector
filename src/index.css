@@ -75,3 +75,7 @@ h6 {
 .name-link:hover {
   color: grey;
 }
+
+.table td {
+  vertical-align: middle;
+}
