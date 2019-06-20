@@ -9,14 +9,24 @@ export default function pokemonReducer(state = initialState, action) {
 	switch(action.type) {
 		case FETCH_POKEMON:
 			return action.payload;
+			// return { ...state, pokemon: action.payload};
 		case ADD_POKEMON:
-			// return Object.assign({}, state, [ ...state, action.payload ]);
-			return state.concat(action.payload);
+			// return Object.assign({}, state, {
+			// 	pokemon: action.payload
+			// });
+			return Object.assign([], state, [ ...state, action.payload ]);
+			// return state.concat(action.payload);
 		case DELETE_POKEMON:
-			// return Object.assign({}, state, deleteOnePokemon(state, action.payload));
-			return state.filter(item => {
-				return item.id !== action.payload.id
+			// state is object or array?
+			return state.filter(poke => {
+				return poke.id != action.payload.id.id;
 			});
+			// this.setState(deleteOnePokemon(state, action.payload.id));
+			// let obj = Object.assign({}, state, {
+			// 	 ...state, 
+			// 	 pokemon: deleteOnePokemon(state, action.payload.id)
+			// 	});
+			// return obj;
 		case EDIT_POKEMON:
 			return action.payload;
 		case FILTER_BY_TYPE:
@@ -26,11 +36,13 @@ export default function pokemonReducer(state = initialState, action) {
 	}
 }
 
-// function deleteOnePokemon(pokemon, givenID) {
-// 	return pokemon.filter(poke => {
-// 		return poke.id !== givenID;
-// 	});
-// }
+function deleteOnePokemon(state, givenID) {
+	let newList = state.filter(poke => {
+		return poke.id != givenID.id;
+	});
+	console.log(newList);
+	return newList;
+}
 
 // const initState = [
 // 	{

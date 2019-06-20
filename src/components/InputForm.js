@@ -89,9 +89,3 @@ class InputForm extends React.Component {
 }
 
 export default InputForm;
-
-// function mapDispatchToProps(dispatch) {
-//     return bindActionCreators({addItem}, dispatch);
-// }
-
-// export default connect(() => {return {}}, mapDispatchToProps)(InputForm);
