@@ -133,8 +133,8 @@ var pokemonList = [
     {
         id: 7, 
         name: "minyoung", 
-        species: "jigglypuff",
-        type: "normal/fairy"
+        species: "quagsire",
+        type: "ground/water"
     },
     {
         id: 8,
