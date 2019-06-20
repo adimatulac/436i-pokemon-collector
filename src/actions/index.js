@@ -5,14 +5,14 @@ const apiURL = 'http://localhost:5000/api/pokemon/';
 
 // async
 export const addPokemon = ({ name, species, type }) => {
-	return (dispatch) => {
-		return axios.post(`${apiURL}`, {name, species, type})
-		.then(res => {
-			dispatch(addPokemonSuccess(res.data))
-		})
-		.catch(err => {
-			throw(err);
-		});
+	return async (dispatch) => {
+		try {
+			const res = await axios.post(`${apiURL}`, { name, species, type });
+			dispatch(addPokemonSuccess(res.data));
+		}
+		catch (err) {
+			throw (err);
+		}
 	};
 };
 
@@ -31,16 +31,16 @@ export const addPokemonSuccess = (data) => {
 
 // async
 export const deletePokemon = (id) => {
-	return (dispatch) => {
-		return axios.delete(`${apiURL}${id}`)
-		.then(res => {
+	return async (dispatch) => {
+		try {
+			const res = await axios.delete(`${apiURL}${id}`);
 			console.log(id);
 			console.log(res.data);
-			dispatch(deletePokemonSuccess(res.data))
-		})
-		.catch(err => {
-			throw(err);
-		});
+			dispatch(deletePokemonSuccess(res.data));
+		}
+		catch (err) {
+			throw (err);
+		}
 	};
 };
 
@@ -64,28 +64,28 @@ export const fetchPokemon = (pokemon) => {
 
 // async
 export const fetchAllPokemon = () => {
-	return (dispatch) => {
-		return axios.get(apiURL)
-		.then(res => {
-			dispatch(fetchPokemon(res.data))
-		})
-		.catch(err => {
-			throw(err);
-		});
+	return async (dispatch) => {
+		try {
+			const res = await axios.get(apiURL);
+			dispatch(fetchPokemon(res.data));
+		}
+		catch (err) {
+			throw (err);
+		}
 	};
 };
 
 export const editPokemon = (id, body) => {
-	return (dispatch) => {
-		return axios.put(`${apiURL}${id}`, body)
-		.then(res => {
+	return async (dispatch) => {
+		try {
+			const res = await axios.put(`${apiURL}${id}`, body);
 			console.log(id);
 			console.log(res.data);
-			dispatch(editPokemonSuccess(res.data))
-		})
-		.catch(err => {
-			throw(err);
-		});
+			dispatch(editPokemonSuccess(res.data));
+		}
+		catch (err) {
+			throw (err);
+		}
 	};
 }
 
@@ -103,14 +103,14 @@ export const editPokemonSuccess = (data) => {
 
 // async
 export const filterByType = (type) => {
-	return (dispatch) => {
-		return axios.get(`${apiURL}${type}`)
-		.then(res => {
-			dispatch(filterByTypeSuccess(res.data))
-		})
-		.catch(err => {
-			throw(err);
-		});
+	return async (dispatch) => {
+		try {
+			const res = await axios.get(`${apiURL}${type}`);
+			dispatch(filterByTypeSuccess(res.data));
+		}
+		catch (err) {
+			throw (err);
+		}
 	};
 };
 
