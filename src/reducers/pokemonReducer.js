@@ -18,9 +18,11 @@ export default function pokemonReducer(state = initialState, action) {
 			// return state.concat(action.payload);
 		case DELETE_POKEMON:
 			// state is object or array?
-			return state.filter(poke => {
-				return poke.id != action.payload.id.id;
-			});
+			let newState = state;
+			return (deleteOnePokemon(newState, action.payload.id));
+			// return state.filter(poke => {
+			// 	return poke.id != action.payload.id.id;
+			// });
 			// this.setState(deleteOnePokemon(state, action.payload.id));
 			// let obj = Object.assign({}, state, {
 			// 	 ...state, 
