@@ -1,11 +1,11 @@
 import React from 'react';
-import Select from 'react-select';
+// import Select from 'react-select';
 // import { connect } from 'react-redux';
 // import { addItem } from '../actions';
 // import { bindActionCreators } from 'redux';
 
-const speciesOptions = [];
-const typeOptions = [];
+// const speciesOptions = [];
+// const typeOptions = [];
 
 class InputForm extends React.Component {
     constructor(props) {
