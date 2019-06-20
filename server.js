@@ -78,12 +78,13 @@ app.delete('/api/pokemon/:id', (req, res) => {
 
     const reqID = req.params.id;
 
+    // pokemonList = pokemonList.filter(pokemon => {
+    //     return pokemon.id !== reqID;
+    // });
+
     let pokemon = pokemonList.filter(pokemon => {
         return pokemon.id == reqID;
     })[0];
-
-    let reqName = pokemon.name;
-    let reqSpecies = pokemon.species;
 
     const index = pokemonList.indexOf(pokemon);
 

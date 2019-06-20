@@ -10,8 +10,10 @@ export default function pokemonReducer(state = initialState, action) {
 		case FETCH_POKEMON:
 			return action.payload;
 		case ADD_POKEMON:
+			// return Object.assign({}, state, [ ...state, action.payload ]);
 			return state.concat(action.payload);
 		case DELETE_POKEMON:
+			// return Object.assign({}, state, deleteOnePokemon(state, action.payload));
 			return state.filter(item => {
 				return item.id !== action.payload.id
 			});
@@ -23,6 +25,12 @@ export default function pokemonReducer(state = initialState, action) {
 			return state;
 	}
 }
+
+// function deleteOnePokemon(pokemon, givenID) {
+// 	return pokemon.filter(poke => {
+// 		return poke.id !== givenID;
+// 	});
+// }
 
 // const initState = [
 // 	{

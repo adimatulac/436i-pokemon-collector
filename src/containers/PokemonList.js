@@ -4,6 +4,11 @@ import Pokemon from '../components/Pokemon';
 import { deletePokemon } from '../actions';
 
 function PokemonList({ pokemon, onDelete }) {
+    
+    // this.state = {
+    //     pokemon: pokemon
+    // }
+
     if (!pokemon.length) {
         return (
             <div className="card text-white bg-danger mb-3">
@@ -19,7 +24,7 @@ function PokemonList({ pokemon, onDelete }) {
         <div className="row justify-content-center">
             {pokemon.map(p => {
                 return (
-                    <div className="col-auto mb-3">
+                    <div className="col-auto mb-3" key={ p.id }>
                     {/* <div className="col-sm-3"> */}
                     <div className="card h-100" id="pokemon-card" key={ p.id }>
                         <Pokemon poke={ p } onDelete={ onDelete } key={ p.id } />
