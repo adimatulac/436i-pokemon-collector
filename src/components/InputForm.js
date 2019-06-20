@@ -1,66 +1,97 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { addItem } from '../actions';
-import { bindActionCreators } from 'redux';
+import Select from 'react-select';
+// import { connect } from 'react-redux';
+// import { addItem } from '../actions';
+// import { bindActionCreators } from 'redux';
+
+const speciesOptions = [];
+const typeOptions = [];
 
 class InputForm extends React.Component {
     constructor(props) {
         super(props);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClear = this.handleClear.bind(this);
     }
 
+    state = {
+        name: '',
+        species: '',
+        type: ''
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
     handleSubmit = (e) => {
         e.preventDefault();
-        if (!this.refs.title.value.trim() || !this.refs.details.value.trim()) {
-            return;
+        if (this.state.name.trim() && this.state.species.trim()) {
+            console.log(this.state);
+            this.props.onAddPokemon(this.state);
+            this.handleClear();
         }
-        let newItem = {
-            id: Date.now(),
-            title: this.refs.title.value,
-            details: this.refs.details.value
-        }
-        this.props.addItem(newItem);
-        this.refs.title.value = '';
-        this.refs.details.value = '';
     }
 
-    handleClear = (e) => {
-        e.preventDefault();
-        this.refs.title.value = '';
-        this.refs.details.value = '';
-    }
+    handleClear = () => {
+        this.setState({
+            name: '',
+            species: '',
+            type: ''
+        });
+    };
     
     render() {
         return(
-            <div className="mini-form container">
-                <form onSubmit={this.handleSubmit}>
+            <div>
+                <form id="input-form" onSubmit={ this.handleSubmit }>
                     <div className="form-group">
-                    <label htmlFor="title">
-                        <h5>
-                        * name:
-                        </h5>
-                    </label>
-                    <input type="text" className="form-control" id="title" ref="title" />
+                        <input
+                        type="text"
+                        placeholder="name"
+                        className="form-control"
+                        name="name"
+                        onChange={ this.handleChange }
+                        value={ this.state.name }
+                        />
                     </div>
                     <div className="form-group">
-                    <label htmlFor="details">
-                        <h5>
-                        * type:
-                        </h5>
-                    </label>
-                    <input type="text" className="form-control" id="details" ref="details" />
+                        <input
+                        type="text"
+                        placeholder="species"
+                        className="form-control"
+                        name="species"
+                        onChange={ this.handleChange }
+                        value={ this.state.species }
+                        />
                     </div>
-                    <button type="submit" className="btn btn-primary extra-space fix-padding">add</button>
-                    <button className="btn btn-secondary extra-space fix-padding" onClick={this.handleClear}>clear form</button>
-                </form>
+                    <div className="form-group">
+                        <input
+                        type="text"
+                        placeholder="type"
+                        className="form-control"
+                        name="type"
+                        onChange={ this.handleChange }
+                        value={ this.state.type }
+                        />
+                    </div>
+                    <div className="form-group">
+                        <button type="submit" className="btn btn-primary extra-space">add</button>
+                        <button type="submit" className="btn btn-secondary extra-space" onClick={ this.handleClear }>clear</button>
+                    </div>
+                </form>    
             </div>
-        )
+        );
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({addItem}, dispatch);
-}
+export default InputForm;
 
-export default connect(() => {return {}}, mapDispatchToProps)(InputForm);
+// function mapDispatchToProps(dispatch) {
+//     return bindActionCreators({addItem}, dispatch);
+// }
+
+// export default connect(() => {return {}}, mapDispatchToProps)(InputForm);

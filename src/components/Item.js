@@ -40,9 +40,7 @@ class Item extends React.Component {
         <button className="btn btn-danger fix-padding" onClick={this.handleButton}>delete</button>
         </td>
         <td>
-        {this.state.showPopup ? (
-          <Popup text={this.props.details} closePopup={this.togglePopup} />
-        ) : null}
+        {this.state.showPopup ? (<Popup text={this.props.details} closePopup={this.togglePopup} />) : null}
         </td>
       </tr>
     )

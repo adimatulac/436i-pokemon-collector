@@ -13,7 +13,7 @@ class ItemList extends React.Component {
                         <h5>name</h5>
                     </th>
                     <th>
-                        <h5>type</h5>
+                        <h5>species</h5>
                     </th>
                     <th></th>
                     <th></th>
@@ -35,5 +35,5 @@ function mapStateToProps(state) {
     };
 }
 
-// passes mapped state on (binds to class)
+// passes mapped state on as props to component
 export default connect(mapStateToProps)(ItemList);
