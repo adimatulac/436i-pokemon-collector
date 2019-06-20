@@ -130,7 +130,7 @@ h6 {
   font-weight: 400;
 }
 
-#poke-shrink {
+.poke-shrink {
   /* transform: scale(0.25); */
   width: 25%;
   /* height: 25%; */
@@ -138,14 +138,22 @@ h6 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 25px;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0px;
 }
 
-#card-img {
+.img-space {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px
+  /* margin: 0 auto; */
+}
+
+.card-img {
   height: 5rem;
   position:relative;
-  text-align: center;
+  margin: auto;
+  /* text-align: center; */
   /* position: absolute;
   bottom: 0; */
 }

@@ -54,26 +54,26 @@ export const deletePokemonSuccess = (id) => {
 	}
 }
 
-//sync
-export const fetchPokemon = (pokemon) => {
-	return {
-		type: FETCH_POKEMON,
-		payload: pokemon
-	}
-}
-
 // async
 export const fetchAllPokemon = () => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(apiURL);
-			dispatch(fetchPokemon(res.data));
+			dispatch(fetchAllPokemonSuccess(res.data));
 		}
 		catch (err) {
 			throw (err);
 		}
 	};
 };
+
+// sync
+export const fetchAllPokemonSuccess = (pokemon) => {
+	return {
+		type: FETCH_POKEMON,
+		payload: pokemon
+	}
+}
 
 export const editPokemon = (id, body) => {
 	return async (dispatch) => {
@@ -89,6 +89,7 @@ export const editPokemon = (id, body) => {
 	};
 }
 
+// sync
 export const editPokemonSuccess = (data) => {
 	return {
 		type: EDIT_POKEMON,
