@@ -76,7 +76,10 @@ app.put('/api/pokemon/:id', (req, res) => {
 // DELETE route for deleting pokemon
 app.delete('/api/pokemon/:id', (req, res) => {
 
-    const reqID = req.params.id;
+    const reqID = parseInt(req.params.id, 10);
+    
+    console.log("in the server: ")
+    console.log(typeof reqID === 'number');
 
     // pokemonList = pokemonList.filter(pokemon => {
     //     return pokemon.id !== reqID;
@@ -91,7 +94,7 @@ app.delete('/api/pokemon/:id', (req, res) => {
     pokemonList.splice(index, 1);
 
     // res.json({ message: `${reqName} the ${reqSpecies} has been deleted.` });
-    res.json({ id: `${reqID}` });
+    res.json({ id: reqID });
 });
 
 var pokemonList = [

@@ -34,7 +34,7 @@ export const deletePokemon = (id) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.delete(`${apiURL}${id}`);
-			console.log(id);
+			// console.log(id);
 			console.log(res.data);
 			dispatch(deletePokemonSuccess(res.data));
 		}

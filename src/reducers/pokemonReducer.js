@@ -40,7 +40,7 @@ export default function pokemonReducer(state = initialState, action) {
 
 function deleteOnePokemon(state, givenID) {
 	let newList = state.filter(poke => {
-		return poke.id != givenID.id;
+		return poke.id !== givenID.id;
 	});
 	console.log(newList);
 	return newList;
