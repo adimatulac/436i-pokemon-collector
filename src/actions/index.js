@@ -21,7 +21,7 @@ export const addPokemonSuccess = (data) => {
 	return  {
 		type: ADD_POKEMON,
 		payload: {
-			id: data.id,
+			id: data._id,
 			name: data.name,
 			species: data.species,
 			type: data.type
@@ -30,11 +30,11 @@ export const addPokemonSuccess = (data) => {
 }
 
 // async
-export const deletePokemon = (id) => {
+export const deletePokemon = (_id) => {
 	return async (dispatch) => {
 		try {
-			const res = await axios.delete(`${apiURL}${id}`);
-			// console.log(id);
+			const res = await axios.delete(`${apiURL}${_id}`);
+			console.log(_id);
 			console.log(res.data);
 			dispatch(deletePokemonSuccess(res.data));
 		}
@@ -45,11 +45,11 @@ export const deletePokemon = (id) => {
 };
 
 // sync
-export const deletePokemonSuccess = (id) => {
+export const deletePokemonSuccess = (_id) => {
 	return {
 		type: DELETE_POKEMON,
 		payload: {
-			id
+			_id
 		}
 	}
 }
@@ -122,17 +122,3 @@ export const filterByTypeSuccess = (pokemon) => {
 		payload: pokemon
 	}
 }
-
-// export const addItem = (item) => {
-// 	return {
-// 		type: 'ADD_ITEM',
-// 		payload: item
-// 	}
-// }
-
-// export const deleteItem = (id) => {
-// 	return {
-// 		type: 'DELETE_ITEM',
-// 		payload: id
-// 	}
-// }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ poke: { id, name, species, type }, onDelete }) => {
+export default ({ poke: { _id, name, species, type }, onDelete }) => {
     return (
         <div className="card-body">
             <div className="card-img">
@@ -9,7 +9,7 @@ export default ({ poke: { id, name, species, type }, onDelete }) => {
             <h6 className="card-title">name: <span className="card-text p-unbolded">{ name }</span></h6>
             <h6 className="card-title">species: <span className="card-text p-unbolded">{ species }</span></h6>
             <h6 className="card-title">type: <span className="card-text p-unbolded">{ type }</span></h6>
-            <button className="btn btn-danger card-btn" type="button" onClick={() => onDelete(id)}>delete</button>
+            <button className="btn btn-danger card-btn" type="button" onClick={() => onDelete(_id)}>delete</button>
         </div>
     );
 };

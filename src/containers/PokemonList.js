@@ -19,9 +19,9 @@ function PokemonList({ pokemon, onDelete }) {
             <div className="row justify-content-center">
                 {pokemon.map(p => {
                     return (
-                        <div className="col-auto mb-3" key={ p.id }>
-                            <div className="card h-100 pokemon-card" key={ p.id }>
-                                <Pokemon poke={ p } onDelete={ onDelete } key={ p.id } />
+                        <div className="col-auto mb-3" key={ p._id }>
+                            <div className="card h-100 pokemon-card" key={ p._id }>
+                                <Pokemon poke={ p } onDelete={ onDelete } key={ p._id } />
                             </div>
                         </div>
                     );
@@ -39,8 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onDelete: id => {
-            dispatch(deletePokemon(id));
+        onDelete: _id => {
+            dispatch(deletePokemon(_id));
         }
     };
 };
