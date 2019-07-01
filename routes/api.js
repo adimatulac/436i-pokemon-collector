@@ -7,7 +7,6 @@ router.get('/pokemon', (req, res, next) => {
     Pokemon.find({}).then(function(pokemon){
         res.send(pokemon);
     }).catch(next);
-    // res.send(pokemonList);
 });
 
 // POST route for new pokemon

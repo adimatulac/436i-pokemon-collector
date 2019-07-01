@@ -21,7 +21,7 @@ export default function pokemonReducer(state = initialState, action) {
 
 		case FILTER_BY_TYPE:
 			return action.payload;
-			
+
 		default:
 			return state;
 	}
@@ -29,7 +29,7 @@ export default function pokemonReducer(state = initialState, action) {
 
 function deleteOnePokemon(state, givenID) {
 	let newList = state.filter(poke => {
-		return poke.id !== givenID.id;
+		return poke._id !== givenID._id;
 	});
 	console.log(newList);
 	return newList;
