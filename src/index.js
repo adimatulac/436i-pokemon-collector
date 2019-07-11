@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+
 import './index.css';
 import App from './components/App';
+import rootReducer from './reducers'; 
+import { fetchAllPokemon } from './actions/index';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducers from './reducers'; 
 
+const store = createStore(rootReducer, applyMiddleware(thunk));
+store.dispatch(fetchAllPokemon());
 
 ReactDOM.render(
-	<Provider store={createStore(reducers)}>
+	<Provider store={store}>
 		<App />
 	</Provider>, 
 	document.getElementById('root'));

@@ -1,66 +1,102 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { addItem } from '../actions';
-import { bindActionCreators } from 'redux';
+import AutoCompleteInput from './AutoCompleteInput';
 
 class InputForm extends React.Component {
     constructor(props) {
         super(props);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClear = this.handleClear.bind(this);
     }
 
+    state = {
+        name: '',
+        species: '',
+        type: '',
+        selected: []
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
+    handleChangeTypeahead = (e) => {
+        console.log(e);
+        console.log(e[0].species);
+        this.setState({
+            species: e[0].species
+        });
+        console.log(e[0].primary);
+        this.setState({
+            type: e[0].primary
+        });
+    };
+
     handleSubmit = (e) => {
         e.preventDefault();
-        if (!this.refs.title.value.trim() || !this.refs.details.value.trim()) {
-            return;
+        if (this.state.name.trim() && this.state.species.trim()) {
+            const newPoke = {
+                name: this.state.name,
+                species: this.state.species,
+                type: this.state.type
+            };
+            console.log(newPoke);
+            this.props.onAddPokemon(newPoke);
+            this.handleClear();
         }
-        let newItem = {
-            id: Date.now(),
-            title: this.refs.title.value,
-            details: this.refs.details.value
-        }
-        this.props.addItem(newItem);
-        this.refs.title.value = '';
-        this.refs.details.value = '';
     }
 
-    handleClear = (e) => {
-        e.preventDefault();
-        this.refs.title.value = '';
-        this.refs.details.value = '';
-    }
+    handleClear = () => {
+        this.setState({
+            name: '',
+            species: '',
+            type: ''
+        });
+    };
     
     render() {
         return(
-            <div className="mini-form container">
-                <form onSubmit={this.handleSubmit}>
+            <div>
+                <form id="input-form" onSubmit={ this.handleSubmit }>
                     <div className="form-group">
-                    <label htmlFor="title">
-                        <h5>
-                        * name:
-                        </h5>
-                    </label>
-                    <input type="text" className="form-control" id="title" ref="title" />
+                        <input
+                        type="text"
+                        placeholder="name"
+                        className="form-control"
+                        name="name"
+                        onChange={ this.handleChange }
+                        value={ this.state.name }
+                        />
+                    </div>
+                    <AutoCompleteInput 
+                        className="form-control"
+                        id="species"
+                        name="species"
+                        onChange={ this.handleChangeTypeahead }
+                        selected={ this.state.selected }
+                        value={ this.state.species }
+                    />
+                    <div className="form-group">
+                        <input
+                        type="text"
+                        placeholder="type"
+                        className="form-control"
+                        disabled
+                        name="type"
+                        onChange={ this.handleChange }
+                        value={ this.state.type }
+                        />
                     </div>
                     <div className="form-group">
-                    <label htmlFor="details">
-                        <h5>
-                        * type:
-                        </h5>
-                    </label>
-                    <input type="text" className="form-control" id="details" ref="details" />
+                        <button type="submit" className="btn btn-primary extra-space">add</button>
+                        <button type="submit" className="btn btn-secondary extra-space" onClick={ this.handleClear }>clear</button>
                     </div>
-                    <button type="submit" className="btn btn-primary extra-space fix-padding">add</button>
-                    <button className="btn btn-secondary extra-space fix-padding" onClick={this.handleClear}>clear form</button>
-                </form>
+                </form>    
             </div>
-        )
+        );
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({addItem}, dispatch);
-}
-
-export default connect(() => {return {}}, mapDispatchToProps)(InputForm);
+export default InputForm;
