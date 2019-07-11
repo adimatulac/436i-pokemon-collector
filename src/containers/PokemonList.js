@@ -4,7 +4,6 @@ import Pokemon from '../components/Pokemon';
 import { deletePokemon } from '../actions';
 
 function PokemonList({ pokemon, onDelete }) {
-
     if (pokemon.length === 0) {
         return (
             <div className="card text-white bg-danger mb-3">

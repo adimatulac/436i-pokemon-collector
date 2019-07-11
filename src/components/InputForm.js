@@ -1,11 +1,5 @@
 import React from 'react';
-// import Select from 'react-select';
-// import { connect } from 'react-redux';
-// import { addItem } from '../actions';
-// import { bindActionCreators } from 'redux';
-
-// const speciesOptions = [];
-// const typeOptions = [];
+import AutoCompleteInput from './AutoCompleteInput';
 
 class InputForm extends React.Component {
     constructor(props) {
@@ -18,7 +12,8 @@ class InputForm extends React.Component {
     state = {
         name: '',
         species: '',
-        type: ''
+        type: '',
+        selected: []
     };
 
     handleChange = (e) => {
@@ -27,11 +22,28 @@ class InputForm extends React.Component {
         });
     };
 
+    handleChangeTypeahead = (e) => {
+        console.log(e);
+        console.log(e[0].species);
+        this.setState({
+            species: e[0].species
+        });
+        console.log(e[0].primary);
+        this.setState({
+            type: e[0].primary
+        });
+    };
+
     handleSubmit = (e) => {
         e.preventDefault();
         if (this.state.name.trim() && this.state.species.trim()) {
-            console.log(this.state);
-            this.props.onAddPokemon(this.state);
+            const newPoke = {
+                name: this.state.name,
+                species: this.state.species,
+                type: this.state.type
+            };
+            console.log(newPoke);
+            this.props.onAddPokemon(newPoke);
             this.handleClear();
         }
     }
@@ -58,21 +70,20 @@ class InputForm extends React.Component {
                         value={ this.state.name }
                         />
                     </div>
-                    <div className="form-group">
-                        <input
-                        type="text"
-                        placeholder="species"
+                    <AutoCompleteInput 
                         className="form-control"
+                        id="species"
                         name="species"
-                        onChange={ this.handleChange }
+                        onChange={ this.handleChangeTypeahead }
+                        selected={ this.state.selected }
                         value={ this.state.species }
-                        />
-                    </div>
+                    />
                     <div className="form-group">
                         <input
                         type="text"
                         placeholder="type"
                         className="form-control"
+                        disabled
                         name="type"
                         onChange={ this.handleChange }
                         value={ this.state.type }
