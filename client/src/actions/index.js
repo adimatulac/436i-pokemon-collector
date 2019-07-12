@@ -1,7 +1,7 @@
 import { FETCH_POKEMON, ADD_POKEMON, DELETE_POKEMON, EDIT_POKEMON, FILTER_BY_TYPE } from './types';
 import axios from 'axios';
 
-const apiURL = 'http://localhost:5000/api/pokemon/';
+const apiURL = '/api/pokemon/';
 
 // async
 export const addPokemon = ({ name, species, type }) => {

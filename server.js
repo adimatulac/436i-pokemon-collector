@@ -6,10 +6,12 @@ require("dotenv").config();
 
 const app = express();
 
-const connectionString = 'mongodb+srv://admin:gClpi5pSWxXgUTVx@pokemon-5vy4r.mongodb.net/test?retryWrites=true&w=majority';
+const db = require('./config/keys').mongoURI;
+
+const connectionString = process.env.MONGODB_URI || 'mongodb+srv://admin:gClpi5pSWxXgUTVx@pokemon-5vy4r.mongodb.net/test?retryWrites=true&w=majority';
 
 // connect to mongodb
-mongoose.connect(connectionString, { useNewUrlParser: true });
+mongoose.connect(db, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 const bodyParser = require('body-parser');
@@ -23,16 +25,18 @@ app.use(cors());
 
 app.use('/api', routes);
 
-app.use(express.static(path.join(__dirname, "client", "build")));
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static("client/build"));
+
+    // server react app
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    });
+}
 
 // error handling
 app.use(function(err, req, res, next){
     res.status(422).send({ error: err.message });
-});
-
-// server react app
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 // log to show server is running
