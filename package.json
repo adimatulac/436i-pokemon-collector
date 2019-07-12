@@ -29,6 +29,9 @@
       "last 1 safari version"
     ]
   },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
   "engines": {
     "node": "10.16.0"
   }
