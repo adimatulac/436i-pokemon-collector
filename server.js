@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const app = express();
 
-const connectionString = process.env.MONGODB_URI || 'mongodb+srv://admin:gClpi5pSWxXgUTVx@pokemon-5vy4r.mongodb.net/test?retryWrites=true&w=majority';
+const connectionString = 'mongodb+srv://admin:gClpi5pSWxXgUTVx@pokemon-5vy4r.mongodb.net/test?retryWrites=true&w=majority';
 
 // connect to mongodb
 mongoose.connect(connectionString, { useNewUrlParser: true });
