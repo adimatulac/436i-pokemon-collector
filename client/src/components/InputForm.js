@@ -29,9 +29,15 @@ class InputForm extends React.Component {
             species: e[0].species
         });
         console.log(e[0].primary);
-        this.setState({
-            type: e[0].primary
-        });
+        if (e[0].secondary !== "") {
+            this.setState({
+                type: e[0].primary + '/' + e[0].secondary
+            });
+        } else {
+            this.setState({
+                type: e[0].primary
+            });
+        }
     };
 
     handleSubmit = (e) => {
