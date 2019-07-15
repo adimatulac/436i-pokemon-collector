@@ -42,7 +42,7 @@ class InputForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        if (this.state.name.trim() && this.state.species.trim()) {
+        if (this.state.name.trim() && this.state.species.trim() && this.state.type.trim()) {
             const newPoke = {
                 name: this.state.name,
                 species: this.state.species,
