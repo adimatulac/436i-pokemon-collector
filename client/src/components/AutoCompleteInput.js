@@ -4,10 +4,10 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import pokemonData from './pokemonData';
 
 class AutoCompleteInput extends React.Component {
-
-  state = {
-    selected: []
-  }
+  
+    state = {
+      selected: []
+    }
 
       render() {
         return (
