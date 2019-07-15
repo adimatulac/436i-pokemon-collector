@@ -7,11 +7,10 @@ require("dotenv").config();
 const app = express();
 
 const db = require('./config/keys').mongoURI;
-
-const connectionString = process.env.MONGODB_URI || 'mongodb+srv://admin:gClpi5pSWxXgUTVx@pokemon-5vy4r.mongodb.net/test?retryWrites=true&w=majority';
+const connectionString = process.env.DATABASE_URI || db;
 
 // connect to mongodb
-mongoose.connect(db, { useNewUrlParser: true });
+mongoose.connect(connectionString, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 const bodyParser = require('body-parser');
