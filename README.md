@@ -3,11 +3,11 @@ This project was developed for CPSC 436I in order to learn fundamental web techn
 
 ## Installation
 
-Clone the project to your local machine. In the project directory, you can run:
+Clone the project to your local machine. In the project directory, run:
 ```
 $ npm install
 ```
-This installs all of the required dependencies.
+This installs all of the required dependencies. Check to make sure they've all installed properly.
 
 ## Local Deployment
 To view the app in the development mode, run: 
